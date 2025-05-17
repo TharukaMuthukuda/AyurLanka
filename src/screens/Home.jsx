@@ -4,7 +4,7 @@ import Product from "../components/Product";
 import Practitioner from "../components/Practitioner";
 import { useNavigate } from "react-router-dom";
 import ChatScreen from "./ChatScreen";
-
+//arr
 const imageArray = [
   "/products/p1.png",
   "/products/p4.png",
