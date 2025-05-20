@@ -95,6 +95,7 @@ const Store = () => {
                   imgSrc={product.imgPath}
                   name={product.name}
                   price={product.price}
+                  rating={product.rating}
                 />
               </div>
             ))}

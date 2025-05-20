@@ -20,7 +20,7 @@ export default function ChatScreen() {
     if (storedUser) {
       try {
         const parsedUser = JSON.parse(storedUser);
-        setUsername(parsedUser.displayName || parsedUser.email || "Unknown OG");
+        setUsername(parsedUser.displayName || parsedUser.email || "Customer");
       } catch (err) {
         console.error("Error parsing user", err);
       }
