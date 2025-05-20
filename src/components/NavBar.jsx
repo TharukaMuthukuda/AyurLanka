@@ -1,53 +1,61 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Leaf } from "lucide-react";
 
-const Navbar = ({setUser}) => {
+const Navbar = ({ setUser }) => {
   const navigate = useNavigate();
 
   const handleSignOut = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("user");
-    console.log("User signed out, storage wiped clean");
-    setUser(null); 
+    setUser(null);
     navigate('/');
   };
 
   return (
-    <nav className="bg-feelBlue text-black bg-[#F7FAFA] w-screen px-10 py-3 flex justify-between items-center border-b-1 border-[#c9c9c9]">
-      <Link to="/home">
-        <p className="text-lg font-bold text-green-900">AyurLanka</p>
+    <nav className="w-full px-8 py-4 bg-[#f5fff9] shadow-lg border-b border-green-200 flex justify-between items-center font-['Epilogue']">
+      
+      {/* Logo */}
+      <Link to="/home" className="flex items-center gap-2 hover:scale-105 transition-transform duration-300">
+        <Leaf className="text-green-700 h-6 w-6 animate-pulse" />
+        <span className="text-2xl font-bold text-green-900 tracking-wide">
+          AyurLanka
+        </span>
       </Link>
-      <ul className="flex space-x-10 pr-20">
+
+      {/* Navigation Links */}
+      <ul className="flex space-x-8 items-center text-green-900 text-[15px] font-medium">
+        {[
+          { name: "Home", to: "/home" },
+          { name: "Store", to: "/store" },
+          { name: "Cart", to: "/cart" },
+          { name: "Practitioners", to: "/practitioners" },
+        ].map(({ name, to }) => (
+          <li key={name} className="relative group">
+            <Link
+              to={to}
+              className="hover:text-[#43766C] transition-colors duration-300"
+            >
+              {name}
+            </Link>
+            <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#4C956C] group-hover:w-full transition-all duration-300 rounded-full"></span>
+          </li>
+        ))}
+
+        {/* Suppliers Button */}
         <li>
           <Link to="/suppliers">
-            <button className="bg-[#52540A] text-white py-1 w-[10em] text-sm font-[Epilogue] rounded hover:cursor-pointer">
+            <button className="bg-[#43766C] text-white px-5 py-1.5 rounded-full text-sm shadow hover:bg-[#345e53] transition duration-300">
               Suppliers
             </button>
           </Link>
         </li>
-        <li className="pt-0.5">
-          <Link to="/home" className="hover:text-gangstaGold text-sm">
-            Home
-          </Link>
-        </li>
-        <li className="pt-0.5">
-          <Link to="/store" className="hover:text-gangstaGold text-sm">
-            Store
-          </Link>
-        </li>
-        <li className="pt-0.5">
-          <Link to="/cart" className="hover:text-gangstaGold text-sm">
-            Cart
-          </Link>
-        </li>
-        <li className="pt-0.5">
-          <Link to="/practitioners" className="hover:text-gangstaGold text-sm">
-            Practitioners
-          </Link>
-        </li>
-        <li className="items-center justify-center w-5 h-5">
+
+        {/* Sign Out */}
+        <li>
           <button
             onClick={handleSignOut}
-            className="items-center justify-center hover:cursor-pointer pt-0.5"
+            className="hover:opacity-80 transition duration-300"
+            title="Sign Out"
           >
             <img src="/signOut.png" alt="Sign Out" className="w-5 h-5" />
           </button>

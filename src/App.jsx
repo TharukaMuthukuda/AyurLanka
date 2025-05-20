@@ -3,6 +3,7 @@ import Home from "./screens/Home";
 import { Route, Routes, Navigate } from "react-router-dom";
 import AuthScreen from "./screens/AuthScreen";
 import Navbar from "./components/NavBar";
+import Footer from "./components/Footer";
 import Store from "./screens/Store";
 import Cart from "./screens/Cart";
 import Practitioners from "./screens/Practitioners";
@@ -20,7 +21,14 @@ function App() {
   }, []);
 
   const ProtectedRoute = ({ children }) => {
-    return user ? children : <Navigate to="/" />;
+    return user ? (
+      <div className="flex flex-col min-h-screen">
+        {children}
+        <Footer />
+      </div>
+    ) : (
+      <Navigate to="/" />
+    );
   };
 
   return (

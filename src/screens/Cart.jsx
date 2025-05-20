@@ -23,28 +23,28 @@ const Cart = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto relative">
-      <h1 className="text-3xl font-bold mb-6">🛍 Your Cart</h1>
+    <div className="p-6 max-w-5xl mx-auto min-h-screen flex flex-col">
+      <h1 className="text-3xl font-bold mb-6 text-green-900">🛍 Your Cart</h1>
 
       {cartItems.length === 0 ? (
-        <p className="text-gray-500">
+        <p className="text-gray-500 text-lg">
           Cart's empty. Go stack some traditional goods 🛒
         </p>
       ) : (
         <>
-          <ul className="space-y-4 mb-36">
+          <ul className="space-y-4 mb-10 flex-1">
             {cartItems.map((item, idx) => (
               <li
                 key={idx}
-                className="bg-white rounded-lg shadow flex p-4 items-center gap-4"
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex p-4 items-center gap-4"
               >
                 <img
                   src={item.imgPath}
                   alt={item.name}
-                  className="w-20 h-20 object-cover rounded-lg"
+                  className="w-20 h-20 object-cover rounded-lg border border-green-200"
                 />
                 <div className="flex-1">
-                  <h2 className="font-semibold">{item.name}</h2>
+                  <h2 className="font-semibold text-green-800">{item.name}</h2>
                   <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
                 </div>
                 <div className="text-right">
@@ -53,7 +53,7 @@ const Cart = () => {
                   </p>
                   <button
                     onClick={() => handleRemove(idx)}
-                    className="text-red-500 text-sm hover:cursor-pointer"
+                    className="text-red-500 text-sm hover:underline hover:text-red-600 transition"
                   >
                     Remove
                   </button>
@@ -62,13 +62,14 @@ const Cart = () => {
             ))}
           </ul>
 
-          <div className="fixed bottom-5 left-10 right-10 bg-[#52540A] text-white flex rounded-2xl justify-between items-center px-20 py-3 shadow-[0_-2px_20px_rgba(0,0,0,0.1)] z-50 backdrop-blur-lg">
-            <span className="text-lg font-bold tracking-wide">
+          {/* Smooth and spaced-out checkout bar */}
+          <div className="w-full bg-[#4F9469] text-white flex justify-between items-center gap-10 px-12 py-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl">
+            <span className="text-xl font-bold tracking-wide whitespace-nowrap">
               Total: Rs. {totalAmount.toLocaleString()}
             </span>
             <button
               onClick={() => setShowModal(true)}
-              className="bg-white text-[#52540A] px-6 py-2 rounded-xl text-sm hover:cursor-pointer transition-all font-medium tracking-wide"
+              className="bg-white text-[#4F9469] px-10 py-3 rounded-xl text-base font-semibold hover:bg-green-100 transition-all duration-300 hover:scale-105"
             >
               Proceed to Checkout
             </button>

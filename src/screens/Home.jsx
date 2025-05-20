@@ -55,10 +55,10 @@ const Home = () => {
       <div className="flex flex-col items-center justify-center bg-[#F7FAFA] w-screen">
         <div className="transform translate-y-10">
           <Post
-            imgSrc={"/homeCard.png"}
-            heading={"Discover the ancient wisdom of Sri Lankan wellness"}
+            imgSrc={"/homeCard.jpg"}
+            heading={"Discover The Ancient Wisdom of Sri Lankan Wellness"}
             subText={
-              "Explore our curated selection of traditional herbal remedies and wellness products, crafted with centuries-old knowledge."
+              "Explore Our Curated Selection of Traditional Herbal Remedies and Wellness Products, Crafted with Centuries-Old Knowledge."
             }
           />
         </div>
@@ -177,9 +177,7 @@ const Home = () => {
             View All
           </button>
         </div>
-        <div className="mt-10 border-t border-gray-200 text-center py-4 text-sm font-semibold text-gray-400 w-[100vw]">
-          All rights reserved by AyurLanka
-        </div>
+        
       </div>
       <ChatScreen />
     </>

@@ -42,7 +42,7 @@ const Suppliers = () => {
           Become a Supplier for AyurLanka
         </h2>
         <p className="text-sm text-gray-600 text-center mb-6">
-          We're currently accepting tenders for high-quality Ayurvedic products
+          We're currently accepting tenders for high-quality Sri Lankan Traditional Medicinal products
           and raw materials. Fill out the form below and we'll be in touch with
           you.
         </p>

@@ -39,9 +39,7 @@ const Practitioners = () => {
             ))}
         </div>
 
-        <div className="mt-10 border-t border-gray-200 text-center py-4 text-sm font-semibold text-gray-400 w-[100vw]">
-          All rights reserved by AyurLanka
-        </div>
+        
       </div>
     </>
   );
